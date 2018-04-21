@@ -63,12 +63,24 @@ public class CheckoutSystem {
 		
 		//Calculate the total amount of the shopping
 		double totalAmount = 0.0;
+		int numOranges=1;
+		int numApples=1;
 		for(String prod : list){
 			if(prod.trim().equalsIgnoreCase("apple")){
-				totalAmount += 0.60;
+				if(numApples == 2){
+					numApples = 1;
+				}else{
+					totalAmount += 0.60;
+					numApples += 1;
+				}
 			}
 			else if(prod.trim().equalsIgnoreCase("orange")){
-				totalAmount += 0.25;
+				if(numOranges == 3){
+					numOranges=1;
+				}else{
+					totalAmount += 0.25;
+					numOranges += 1;
+				}
 			}
 		}
 		
